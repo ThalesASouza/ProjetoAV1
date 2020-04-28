@@ -41,4 +41,11 @@ public class ReceberDados {
 	
 		sc.close();
 	}
+	
+	public void DadosPesquisa(){
+		System.out.println("\nDigite o titulo do filme\n");
+		titulo=sc.nextLine();
+		FC.PesquisaFilme(titulo.toLowerCase());
+	}
+	
 }

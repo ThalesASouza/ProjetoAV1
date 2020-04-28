@@ -19,6 +19,7 @@ public class FilmeControle {
 		for(Filme f : filmes ) {
 		
 			if((f.getTitulo().contains(titulo)) && (f.getGenero()==genero) && (f.getAno()==ano)){
+				
 				System.out.println("ERRO!!!\nFilme já cadstrado no sistema");
 				return 0;
 			}	
@@ -29,4 +30,19 @@ public class FilmeControle {
 		System.out.println("Filme cadastrado com sucesso");
 		return 1;
 	}
+	
+	
+	public Filme PesquisaFilme(String titulo){
+		
+		for(Filme f : filmes) {
+			if(f.getTitulo().toLowerCase().contains(titulo)) {
+				System.out.println("\nFilmes encontrados\n");
+				return f;
+			}
+		}
+		System.out.println("Filme não encontrado");
+		return null;
+	}
+	
+	
 }

@@ -34,7 +34,8 @@ public class App {
 		
 			case 1: RD.DadosCadastro();				
 			break;
-		
+			case 2:RD.DadosPesquisa();
+			break;
 		}
 			 
 		sc.close();
