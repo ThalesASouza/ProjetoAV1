@@ -1,0 +1,18 @@
+package Entidades_enum;
+
+public enum Genero {
+	AÇÃO,
+	ANIMAÇÃO,
+	AVENTURA,
+	COMEDIA,
+	DANÇA,
+	DOCUMENTARIO,
+	DRAMA,
+	FICÇÃO_CIENTIFICA,
+	INFANTIL,
+	MUSICAL,
+	ROMANCE,
+	SUSPENSE,
+	TERROR;
+	
+}
