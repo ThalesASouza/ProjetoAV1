@@ -43,6 +43,9 @@ public class App {
 				case 3:RD.DadosEdicao();
 				break;
 				
+				case 4:RD.DadosRemocao();
+				break;
+				
 				case 5:
 					sc.close();
 					loop=false;

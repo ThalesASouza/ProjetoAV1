@@ -28,6 +28,8 @@ public class FilmeControle {
 			if((f.getTitulo().contains(titulo)) && (f.getGenero()==genero) && (f.getAno()==ano)){
 				
 				System.out.println("ERRO!!!\nFilme já cadstrado no sistema");
+				System.out.println("\n\nAperte Enter para continuar...");
+				sc.nextLine();
 				return 0;
 			}	
 			
@@ -35,12 +37,16 @@ public class FilmeControle {
 		
 		filmes.add(filme);
 		System.out.println("Filme cadastrado com sucesso");
+		System.out.println("\n\nAperte Enter para continuar...");
+		sc.nextLine();
 		return 1;
 	}
 	
 	
 	//Pesquisar filme
-	public void PesquisaFilme(String titulo){
+	public int PesquisaFilme(String titulo){
+		
+		List<Filme> result=new ArrayList<>();
 		
 		if(filmes.isEmpty())
 			
@@ -49,20 +55,22 @@ public class FilmeControle {
 		for(Filme f : filmes) {
 			
 			if(f.getTitulo().toLowerCase().contains(titulo)){
-				
+				result.add(f);
 				System.out.println("\n\nFilmes encontrados\n");
 				f.MostrarFilme();
-			
-			}else{
-				
-				System.out.println("\n\nFilme não encontrado");
-			
-			}
+				System.out.println("\nAperte Enter para continuar...");
+				sc.nextLine();
+				return 1;
 		
+			}
+		}
+		if(result.size()==0 && filmes.isEmpty()==false){
+			System.out.println("\n\nFilme não encontrado");
 		}
 		
 		System.out.println("\nAperte Enter para continuar...");
 		sc.nextLine();
+		return 0;
 	
 	}	
 	
@@ -100,8 +108,49 @@ public class FilmeControle {
 		filme.setAno(ano);
 		filme.setGenero(genero);
 		
+		System.out.println("Filme editado com sucesso");
+		System.out.println("\n\nAperte Enter para continuar...");
+		sc.nextLine();
 	}
+	
+	
+	public Filme RemoverFilme(int codigo) {
+		
+		List<Filme> result=new ArrayList<>();
+		
+		for(Filme f : filmes){
+			
+			if(f.getCodigo()==codigo){
+				
+				result.add(f);
+				return f;	
+
+			}
+		
+		}
+		
+		if(result.size()==0) {
+			System.out.println("\n\nCódigo do Filme não encontrado");
+		}
+		
+		System.out.println("\nAperte Enter para continuar...");
+		sc.nextLine();
+		return null;
+		
+	}	
+	
+	
+	public void RemoverFilmeSelecionado(Filme filme) {
+		this.filme=filme;
+		filmes.remove(filme);
+		System.out.println("Filme Removido com sucesso");
+		System.out.println("\n\nAperte Enter para continuar...");
+		sc.nextLine();
+	}
+
 }
+	
+
 
 	
 
